@@ -1,0 +1,20 @@
+{
+  "name": "vue-install",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxlivit/vue-install.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxlivit/vue-install/issues"
+  },
+  "homepage": "https://github.com/maxlivit/vue-install#readme"
+}
