@@ -1,8 +1,9 @@
 <template>
   <div class="main">
-      <header class="header"></header>
+      <header class="header">
          <h1 class="h1">Build Your Fit</h1>
       <img class = "logo" src = "../assets/livitlogo.png">
+      </header>
   </div>
 </template>
 
@@ -12,7 +13,16 @@ export default {
   name: 'Dresser',
   data() {
       return {
-
+          hair: [
+            {
+              name: "blonde",
+              url: (""),
+            },
+            {
+              name: "",
+              url: (""),
+            }
+          ]
       }
   }, 
   methods: {
@@ -25,7 +35,13 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
+.main{
+  background: blanchedalmond;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 .logo {
     width: 20rem;
     margin-top: -5rem;
