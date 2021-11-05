@@ -44,5 +44,11 @@ export default {
   justify-content: space-between;
 }
 
+.nav-buttons {
+    margin-right: 50%;
+}
 
+.nav-buttons button {
+  margin: 2rem;
+}
 </style>
