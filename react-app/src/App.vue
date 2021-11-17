@@ -22,7 +22,33 @@
 </template>
 
 <script>
+  export default {
+    data() {
+      return {
+        x: 0,
+        hats: [
+          {
+            name: "Yellow Hat"
+           // url: require()
+          },
+        ], 
+        shirts: [
 
+        ],
+      }
+    }, 
+    methods: {
+      updateHat(index) {
+        this.selectedHat = index
+      },
+
+    }, 
+    computed: {
+      hatImage() {
+        return this.hats[this.selectedHat].url;
+      },
+    }
+  }
 
 </script>
 
