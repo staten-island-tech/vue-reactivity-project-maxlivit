@@ -3,18 +3,12 @@
     <div class="nav-bar">
        <img class = "logo" alt="Vue logo" src="./assets/livitlogo.png">
        <div class="nav-buttons">
-         <button>hats</button>
-         <button>shirts</button>
-         <button>hoodies</button>
-         <button>pants</button>
-         <button>shorts</button>
-         <button>shoes</button>
-         <button>socks</button>
+         <button @click="poop(item)" v-for="item in clothing" :key="item">{{item}}</button>
          </div>
 
       </div> 
-   <div class="selecting">
-
+   <div class="show-img" v-for="item in clothing" :key="item" v-if="item=currentItem">
+     
      </div>
   <div class="add"> 
     </div> 
@@ -25,24 +19,66 @@
   export default {
     data() {
       return {
-        x: 0,
+        currentItem: "",
+        clothing: [
+          "hats", 
+          "shirts", 
+          "hoodies", 
+          "pants", 
+          "shorts", 
+          "socks", 
+          "shoes",
+        ],
         hats: [
           {
-            name: "Yellow Hat"
-           // url: require()
+            name: "Yellow Hat",
+            url: require("@/assets/yellowhat.png")
           },
         ], 
         shirts: [
-
+          {
+            name: "Yellow Shirt", 
+            url: require("@/assets/yellowshirt.png")
+          }
+        ],
+        hoodies: [
+          {
+            name: "Yellow Shirt", 
+            url: require("@/assets/yellowhoodie.png")
+          }
+        ],
+        pants: [
+          {
+            name: "Yellow Shirt", 
+            url: require("@/assets/yellowpants.png")
+          }
+        ],
+        shorts: [
+          {
+            name: "Yellow Shirt", 
+            url: require("@/assets/yellowshorts.png")
+          }
+        ],
+        socks: [
+          {
+            name: "Yellow Shirt", 
+            url: require("@/assets/yellowsocks.png")
+          }
+        ],
+        shoes: [
+          {
+            name: "Yellow Shirt", 
+            url: require("@/assets/yellowshoes.png")
+          }
         ],
       }
     }, 
     methods: {
-      updateHat(index) {
-        this.selectedHat = index
+      poop(item) {
+        this.currentItem = item
+      }
       },
 
-    }, 
     computed: {
       hatImage() {
         return this.hats[this.selectedHat].url;
