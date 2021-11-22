@@ -36,11 +36,11 @@
         clothing: [
           {
             name: "Yellow Hat",
-            category: "hat",
+            category: "hats",
             url: require("@/assets/yellowhat.png")
           },
          { name:"Blue Hat",
-          category: "hat",
+          category: "hats",
           url: require("@/assets/bluehat.png")
          },
           {
@@ -80,6 +80,20 @@
     methods: {
       chosen(item) {
         this.currentItem = item
+        this.clothing.filter(clothingItem => clothingItem.item === clothing.category) {
+          console.log(clothingItem)
+        };
+      },
+      // displayJSComponent: function() {
+      //   if (this.JS === false) {
+      //     this.JS = true
+      //     this.showModal = true
+      //     return [this.JS, this.showModal]
+      //   } else {
+      //     this.JS = false
+      //     this.showModal = false
+      //     return [this.JS, this.showModal]
+      //   }
       }
       },
 
