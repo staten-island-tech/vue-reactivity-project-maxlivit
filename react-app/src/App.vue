@@ -3,14 +3,60 @@
     <div class="nav-bar">
        <img class = "logo" alt="Vue logo" src="./assets/livitlogo.png">
        <div class="nav-buttons">
-         <button @click="chosen(item)" v-for="item in clothingNames" :key="item">{{item}}</button>
+         <button @click="showHats = true, 
+          showShirts = false,
+          showHoodies = false">Hats</button>
+         <button @click="showHats = true">Shirts</button>
+         <button @click="showHats = true">Hoodies</button>
+         <button @click="showHats = true">Pants</button>
+         <button @click="showHats = true">Shorts</button>
+         <button @click="showHats = true">Socks</button>
+         <button @click="showHats = true">Shoes</button>
          </div>
 
       </div> 
-   <div class="show-img" v-for="item in clothing" :key="item">
-     <h1>{{item.category}}</h1>
-     <img :src="item.url">
+      <section class='hat-section' v-if="showHats"> 
+        <div class="show-hats" v-for="hat in hats" :key="hat" >
+     <h1>{{hat.category}}</h1>
+     <img :src="hat.url">
      </div>
+        </section> 
+   <section class='shirt-section' v-if="showShirts"> 
+     <div class="show-shirts" v-for="shirt in shirts" :key="shirt">
+     <h1>{{shirt.category}}</h1>
+     <img :src="shirt.url">
+     </div>
+      </section>
+      <section class='hoodie-section' v-if="showHoodies"> 
+     <div class="show-hoodies" v-for="hoodie in hoodies" :key="hoodie">
+     <h1>{{hoodie.category}}</h1>
+     <img :src="hoodie.url">
+     </div>
+     </section>
+     <section class='pants-section' v-if="showPants"> 
+     <div class="show-pants" v-for="pant in pants" :key="pant">
+     <h1>{{pant.category}}</h1>
+     <img :src="pant.url">
+     </div>
+     </section>
+     <section class='shorts-section' v-if="showShorts"> 
+     <div class="show-shorts" v-for="short in shorts" :key="short">
+     <h1>{{short.category}}</h1>
+     <img :src="short.url">
+     </div>
+     </section>
+     <section class='sock-section' v-if="showSocks"> 
+     <div class="show-socks" v-for="sock in socks" :key="sock">
+     <h1>{{sock.category}}</h1>
+     <img :src="sock.url">
+     </div>
+     </section>
+     <section class='shoe-section' v-if="showShoes"> 
+     <div class="show-shoes" v-for="shoe in shoes" :key="shoe">
+     <h1>{{shoe.category}}</h1>
+     <img :src="shoe.url">
+     </div>
+     </section>
   <div class="add"> 
     </div> 
   <div class="cart">
@@ -23,6 +69,13 @@
   export default {
     data() {
       return {
+        showHats: false,
+        showShirts: false,
+        showHoodies: false,
+        showPants: false,
+        showShorts: false,
+        showSocks: false,
+        showShoes: false,
         currentItem: "",
         clothingNames: [
           "hats", 
@@ -33,75 +86,68 @@
           "socks", 
           "shoes",
         ],
-        clothing: [
-          {
-            name: "Yellow Hat",
+        hats: [
+          { 
+          name: "Yellow Hat",
             category: "hats",
             url: require("@/assets/yellowhat.png")
-          },
-         { name:"Blue Hat",
+            },
+            {
+              name:"Blue Hat",
           category: "hats",
           url: require("@/assets/bluehat.png")
-         },
+            },
+            ],
+          shirts: [
           {
             name: "Yellow Shirt", 
             category: "shirts",
             url: require("@/assets/yellowshirt.png")
           },
+          ],
+          hoodies: [
           {
             name: "Yellow Hoodie", 
             category: "hoodies",
             url: require("@/assets/yellowhoodie.png")
           },
+          ],
+          pants: [
           {
             name: "Yellow Pants", 
             category: "pants",
             url: require("@/assets/yellowpants.png")
           },
+          ],
+          shorts: [
           {
             name: "Yellow Shorts", 
             category: "shorts",
             url: require("@/assets/yellowshorts.png")
           },
+          ],
+          socks: [
           {
             name: "Yellow Socks", 
             category: "socks",
             url: require("@/assets/yellowsocks.png")
           },
+          ],
+          shoes: [
           {
             name: "Yellow Shoes", 
             category: "shoes",
             url: require("@/assets/yellowshoes.png")
           },
-        ],
+          ],
         cart: 0
       }
     }, 
     methods: {
-      chosen(item) {
-        this.currentItem = item
-        this.clothing.filter(clothingItem => clothingItem.item === clothing.category) {
-          console.log(clothingItem)
-        };
+        hatToggle() {
+          
+        },
       },
-      // displayJSComponent: function() {
-      //   if (this.JS === false) {
-      //     this.JS = true
-      //     this.showModal = true
-      //     return [this.JS, this.showModal]
-      //   } else {
-      //     this.JS = false
-      //     this.showModal = false
-      //     return [this.JS, this.showModal]
-      //   }
-      }
-      },
-
-    computed: {
-      hatImage() {
-        return this.hats[this.selectedHat].url;
-      },
-    }
   }
 
 </script>
