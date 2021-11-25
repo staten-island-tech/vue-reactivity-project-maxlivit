@@ -4,6 +4,14 @@
        <img class = "logo" alt="Vue logo" src="./assets/livitlogo.png">
        <div class="nav-buttons">
          <button @click="
+          showHats = false, 
+          showShirts = false,
+          showHoodies = false, 
+          showPants = false,
+          showShorts = false,
+          showSocks = false, 
+          showShoes = false">Home</button>
+         <button @click="
           showHats = true, 
           showShirts = false,
           showHoodies = false, 
@@ -58,13 +66,16 @@
 
       </div> 
        <div class="cart">
-    <p>cart({{cart}})</p>
+    <p v-if="cart > 0">cart({{cart}})</p>
+    <p v-else>Nothing in Cart</p>
     </div>
+      
       <section class='hat-section' v-if="showHats"> 
         <div class="show-hats" v-for="hat in hats" :key="hat" >
      <h1>{{hat.name}}</h1>
      <img :src="hat.url" class="hat-img">
      <button @click="addToCart">Add to Cart</button>
+     <button @click="removeFromCart">Remove From Cart</button>
      </div>
         </section> 
    <section class='shirt-section' v-if="showShirts"> 
@@ -72,36 +83,47 @@
      <h1>{{shirt.name}}</h1>
      <img :src="shirt.url" class="shirt-img">
      <button @click="addToCart">Add to Cart</button>
+     <button @click="removeFromCart">Remove From Cart</button>
      </div>
       </section>
       <section class='hoodie-section' v-if="showHoodies"> 
      <div class="show-hoodies" v-for="hoodie in hoodies" :key="hoodie">
      <h1>{{hoodie.name}}</h1>
      <img :src="hoodie.url" class="hoodie-img">
+      <button @click="addToCart">Add to Cart</button>
+      <button @click="removeFromCart">Remove From Cart</button>
      </div>
      </section>
      <section class='pants-section' v-if="showPants"> 
      <div class="show-pants" v-for="pant in pants" :key="pant">
      <h1>{{pant.name}}</h1>
      <img :src="pant.url" class="pant-img">
+      <button @click="addToCart">Add to Cart</button>
+      <button @click="removeFromCart">Remove From Cart</button>
      </div>
      </section>
      <section class='shorts-section' v-if="showShorts"> 
      <div class="show-shorts" v-for="short in shorts" :key="short">
      <h1>{{short.name}}</h1>
      <img :src="short.url" class="short-img">
+      <button @click="addToCart">Add to Cart</button>
+      <button @click="removeFromCart">Remove From Cart</button>
      </div>
      </section>
      <section class='sock-section' v-if="showSocks"> 
      <div class="show-socks" v-for="sock in socks" :key="sock">
      <h1>{{sock.name}}</h1>
      <img :src="sock.url" class="sock-img">
+      <button @click="addToCart">Add to Cart</button>
+      <button @click="removeFromCart">Remove From Cart</button>
      </div>
      </section>
      <section class='shoe-section' v-if="showShoes"> 
      <div class="show-shoes" v-for="shoe in shoes" :key="shoe">
      <h1>{{shoe.name}}</h1>
      <img :src="shoe.url" class="shoe-img"> 
+      <button @click="addToCart">Add to Cart</button>
+      <button @click="removeFromCart">Remove From Cart</button>
      </div>
      </section>
   <div class="add"> 
@@ -224,28 +246,76 @@
             category: "shorts",
             url: require("@/assets/yellowshorts.png")
           },
+          {
+            name: "Hawaii Shorts", 
+            category: "shorts",
+            url: require("@/assets/hawaiishorts.png")
+          },
+          {
+            name: "Supreme x NBA Shorts", 
+            category: "shorts",
+            url: require("@/assets/supremexnbashorts.png")
+          },
+          {
+            name: "Nike UNC Basketball Shorts", 
+            category: "shorts",
+            url: require("@/assets/nikeuncshorts.png")
+          },
           ],
           socks: [
           {
-            name: "Yellow Socks", 
+            name: "Golf Socks", 
             category: "socks",
-            url: require("@/assets/yellowsocks.png")
+            url: require("@/assets/golfsocks.png")
+          },
+          {
+            name: "Nike Dri-Fit Socks", 
+            category: "socks",
+            url: require("@/assets/nikesocks.png")
+          },
+          {
+            name: "Toe Socks", 
+            category: "socks",
+            url: require("@/assets/toesocks.png")
+          },
+          {
+            name: "Watermelon Socks", 
+            category: "socks",
+            url: require("@/assets/watermelonsocks.png")
           },
           ],
           shoes: [
           {
-            name: "Yellow Shoes", 
+            name: "Pink Fuzzy Slippers", 
             category: "shoes",
-            url: require("@/assets/yellowshoes.png")
+            url: require("@/assets/fuzzyslippers.png")
+          },
+          {
+            name: "Black Leather Dress Shoes", 
+            category: "shoes",
+            url: require("@/assets/dressshoes.png")
+          },
+          {
+            name: "Among Us Crocs", 
+            category: "shoes",
+            url: require("@/assets/amonguscrocs.png")
+          },
+          {
+            name: "Rain Boots", 
+            category: "shoes",
+            url: require("@/assets/rainboots.png")
           },
           ],
-        cart: 0
+        cart: 0, 
       }
     }, 
     methods: {
         addToCart () {
           this.cart += 1
         },
+        removeFromCart () {
+          this.cart -=1
+        }
       },
   }
 
@@ -300,6 +370,6 @@
 }
 
 .nav-buttons button {
-  margin: 2rem;
+  margin: 1rem;
 }
 </style>
