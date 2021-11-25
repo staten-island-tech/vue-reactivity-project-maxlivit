@@ -57,54 +57,55 @@
          </div>
 
       </div> 
+       <div class="cart">
+    <p>cart({{cart}})</p>
+    </div>
       <section class='hat-section' v-if="showHats"> 
         <div class="show-hats" v-for="hat in hats" :key="hat" >
      <h1>{{hat.name}}</h1>
-     <img :src="hat.url">
+     <img :src="hat.url" class="hat-img">
+     <button @click="addToCart">Add to Cart</button>
      </div>
         </section> 
    <section class='shirt-section' v-if="showShirts"> 
      <div class="show-shirts" v-for="shirt in shirts" :key="shirt">
      <h1>{{shirt.name}}</h1>
-     <img :src="shirt.url">
+     <img :src="shirt.url" class="shirt-img">
+     <button @click="addToCart">Add to Cart</button>
      </div>
       </section>
       <section class='hoodie-section' v-if="showHoodies"> 
      <div class="show-hoodies" v-for="hoodie in hoodies" :key="hoodie">
      <h1>{{hoodie.name}}</h1>
-     <img :src="hoodie.url">
+     <img :src="hoodie.url" class="hoodie-img">
      </div>
      </section>
      <section class='pants-section' v-if="showPants"> 
      <div class="show-pants" v-for="pant in pants" :key="pant">
      <h1>{{pant.name}}</h1>
-     <img :src="pant.url">
+     <img :src="pant.url" class="pant-img">
      </div>
      </section>
      <section class='shorts-section' v-if="showShorts"> 
      <div class="show-shorts" v-for="short in shorts" :key="short">
      <h1>{{short.name}}</h1>
-     <img :src="short.url">
+     <img :src="short.url" class="short-img">
      </div>
      </section>
      <section class='sock-section' v-if="showSocks"> 
      <div class="show-socks" v-for="sock in socks" :key="sock">
      <h1>{{sock.name}}</h1>
-     <img :src="sock.url">
+     <img :src="sock.url" class="sock-img">
      </div>
      </section>
      <section class='shoe-section' v-if="showShoes"> 
      <div class="show-shoes" v-for="shoe in shoes" :key="shoe">
      <h1>{{shoe.name}}</h1>
-     <img :src="shoe.url">
+     <img :src="shoe.url" class="shoe-img"> 
      </div>
      </section>
   <div class="add"> 
     </div> 
-  <div class="cart">
-    <p>cart({{cart}})</p>
-    </div>
-    <product :premium="premium" @add-to-cart="updateCart"></product>
   </div>
 </template>
 
@@ -140,6 +141,16 @@
           category: "hats",
           url: require("@/assets/bluehat.png")
             },
+            {
+              name:"New York Rangers Hat",
+              category: "hats",
+              url: require("@/assets/nyrhat.png")
+            },
+             {
+              name:"Stay Cool Hat",
+              category: "hats",
+              url: require("@/assets/staycoolhat.png")
+            },
             ],
           shirts: [
           {
@@ -147,19 +158,64 @@
             category: "shirts",
             url: require("@/assets/yellowshirt.png")
           },
+          {
+            name: "Code Shirt", 
+            category: "shirts",
+            url: require("@/assets/codeshirt.png")
+          },
+          {
+            name: "I Hate You & You Look Like A Fish Shirt", 
+            category: "shirts",
+            url: require("@/assets/fishshirt.png")
+          },
+          {
+            name: "Supreme Shirt", 
+            category: "shirts",
+            url: require("@/assets/supremeshirt.png")
+          },
           ],
           hoodies: [
           {
-            name: "Yellow Hoodie", 
+            name: "Lil Durk OTF Hoodie", 
             category: "hoodies",
-            url: require("@/assets/yellowhoodie.png")
+            url: require("@/assets/lildurkhoodie.png")
+          },
+           {
+            name: "Dragon Blossom Hoodie", 
+            category: "hoodies",
+            url: require("@/assets/dragonhoodie.png")
+          },
+           {
+            name: "Juice Wrld 999 Hoodie", 
+            category: "hoodies",
+            url: require("@/assets/juicewrldhoodie.png")
+          },
+           {
+            name: "Custom Red Hoodie", 
+            category: "hoodies",
+            url: require("@/assets/customredhoodie.png")
           },
           ],
           pants: [
           {
-            name: "Yellow Pants", 
+            name: "Grey Joggers", 
             category: "pants",
-            url: require("@/assets/yellowpants.png")
+            url: require("@/assets/greyjoggers.png")
+          },
+          {
+            name: "Rick & Morty Neon Portal Joggers", 
+            category: "pants",
+            url: require("@/assets/neonportaljoggers.png")
+          },
+          {
+            name: "Dark Denim Jeans", 
+            category: "pants",
+            url: require("@/assets/darkdenimjeans.png")
+          },
+          {
+            name: "Moon Joggers", 
+            category: "pants",
+            url: require("@/assets/moonjoggers.png")
           },
           ],
           shorts: [
@@ -196,6 +252,36 @@
 </script>
 
 <style lang="scss">
+.hat-img {
+  width: 25rem;
+  height: 25rem;
+}
+.shirt-img {
+  width: 25rem;
+  height: 25rem;
+}
+.hoodie-img {
+  width: 25rem;
+  height: 25rem;
+}
+.pant-img {
+  width: 25rem;
+  height: 25rem;
+}
+.short-img {
+  width: 25rem;
+  height: 25rem;
+}
+.sock-img {
+  width: 25rem;
+  height: 25rem;
+}
+.shoe-img {
+  width: 25rem;
+  height: 25rem;
+}
+
+
 .logo {
   width: 11rem;
   height: 8rem;
