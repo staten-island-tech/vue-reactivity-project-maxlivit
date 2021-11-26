@@ -1,17 +1,35 @@
 <template>
+
   <div id="app">
     <div class="nav-bar">
-       <img class = "logo" alt="Vue logo" src="./assets/livitlogo.png">
+      <div class="logo-container">
+       <img class="logo-img" alt="Vue logo" src="./assets/livitlogo.png">
+       <h1 class="logo-text">Livit<span>DRESSER</span></h1>
+      </div>
+      <div class="inner-nav">
        <div class="nav-buttons">
          <button @click="
+          home = 1,
           showHats = false, 
           showShirts = false,
           showHoodies = false, 
           showPants = false,
           showShorts = false,
           showSocks = false, 
-          showShoes = false">Home</button>
+          showShoes = false"
+          class="button"><span>Home</span></button>
+          <button @click="
+          home = 0,
+          showHats = false, 
+          showShirts = false,
+          showHoodies = false, 
+          showPants = false,
+          showShorts = false,
+          showSocks = false, 
+          showShoes = false"
+          class="button"><span>Cart</span></button>
          <button @click="
+          home = 0,
           showHats = true, 
           showShirts = false,
           showHoodies = false, 
@@ -19,57 +37,94 @@
           showShorts = false,
           showSocks = false, 
           showShoes = false"
-          >Hats</button>
-         <button @click="showHats = false, 
+          class="button"
+          ><span>Hats</span></button>
+         <button @click="
+         home = 0,
+         showHats = false, 
           showShirts = true,
           showHoodies = false, 
           showPants = false,
           showShorts = false,
           showSocks = false, 
-          showShoes = false">Shirts</button>
-         <button @click="showHats = false, 
+          showShoes = false"
+          class="button"><span>Shirts</span></button>
+         <button @click="
+         home = 0,
+         showHats = false, 
           showShirts = false,
           showHoodies = true, 
           showPants = false,
           showShorts = false,
           showSocks = false, 
-          showShoes = false">Hoodies</button>
-         <button @click="showHats = false, 
+          showShoes = false"
+          class="button"><span>Hoodies</span></button>
+         <button @click="
+         home = 0,
+         showHats = false, 
           showShirts = false,
           showHoodies = false, 
           showPants = true,
           showShorts = false,
           showSocks = false, 
-          showShoes = false">Pants</button>
-         <button @click="showHats = false, 
+          showShoes = false"
+          class="button"><span>Pants</span></button>
+         <button @click="
+         home = 0,
+         showHats = false, 
           showShirts = false,
           showHoodies = false, 
           showPants = false,
           showShorts = true,
           showSocks = false, 
-          showShoes = false">Shorts</button>
-         <button @click="showHats = false, 
+          showShoes = false"
+          class="button"><span>Shorts</span></button>
+         <button @click="
+         home = 0,
+         showHats = false, 
           showShirts = false,
           showHoodies = false, 
           showPants = false,
           showShorts = false,
           showSocks = true, 
-          showShoes = false">Socks</button>
-         <button @click="showHats = false, 
+          showShoes = false"
+          class="button"><span>Socks</span></button>
+         <button @click="
+         home = 0,
+         showHats = false, 
           showShirts = false,
           showHoodies = false, 
           showPants = false,
           showShorts = false,
           showSocks = false, 
-          showShoes = true">Shoes</button>
+          showShoes = true"
+          class="button"><span>Shoes</span></button>
          </div>
 
       </div> 
-       <div class="cart">
+      <div v-if="home > 0" id="home-screen">
+       <h1 v-if="home > 0" class="welcome">Shop Your Style!</h1>
+       <!-- <img :src="image"> -->
+      <div id=slideset2 v-if="home > 0">
+  <div>
+    <h1>This is slide 1</h1>
+    <p>Slide 1<img src="./assets/formalfit.png" class="formal"></p>
+  </div>
+  <div>
+    <h1>This is the second slide</h1>
+    <p>Second slide<img src="./assets/nikefit.png" class="nike"></p>
+  </div>
+  <div>
+    <h1>This is slide number 3</h1>
+    <p>Slide number 3</p>
+  </div>
+</div>
+ <div class="cart">
     <p v-if="cart > 0">cart({{cart}})</p>
     <p v-else>Nothing in Cart</p>
     </div>
-      
+    </div>
+
       <section class='hat-section' v-if="showHats"> 
         <div class="show-hats" v-for="hat in hats" :key="hat" >
      <h1>{{hat.name}}</h1>
@@ -126,9 +181,8 @@
       <button @click="removeFromCart">Remove From Cart</button>
      </div>
      </section>
-  <div class="add"> 
-    </div> 
-  </div>
+    </div>
+    </div>
 </template>
 
 <script>
@@ -143,6 +197,7 @@
         showSocks: false,
         showShoes: false,
         currentItem: "",
+        // image: require("@/assets/formalfit.png",
         clothingNames: [
           "hats", 
           "shirts", 
@@ -154,7 +209,7 @@
         ],
         hats: [
           { 
-          name: "Yellow Hat",
+          name: "Yellow Nike  Hat",
             category: "hats",
             url: require("@/assets/yellowhat.png")
             },
@@ -307,6 +362,7 @@
           },
           ],
         cart: 0, 
+        home: 1,
       }
     }, 
     methods: {
@@ -351,25 +407,153 @@
   height: 25rem;
 }
 
+.logo-img {
+  width: 13rem;
+  height: 10rem;
+}
 
-.logo {
-  width: 11rem;
-  height: 8rem;
+.logo-container {
+  height: 100%;
+  display: table;
+  float: left;
+  margin: 0 auto;
+}
+
+.logo-container h1 {
+  color: black;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 32px;
+  font-weight: 200;
+  float: right;
+  margin: 3rem;
+  margin-left: 1rem;
+}
+
+.logo-container h1 span {
+  font-weight: 800;
 }
 
 .nav-bar {
-  background-color: lightblue;
+  background-color: white;
   width: 100%;
-  height: fit-content;
-  display: flex;
-  justify-content: space-between;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+}
+
+.inner-nav {
+  width: 820px;
+  height: 100%;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  background-color: white;
+  margin-left: auto;
+  margin-top: 3px;
+  margin-right: auto;
+}
+
+.welcome {
+  color: white;
+  width: 85rem;
+  text-align: center;
 }
 
 .nav-buttons {
-    margin-right: 50%;
+    padding: 2rem;
+    width: 60rem;
+    margin-right: 20rem;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.nav-buttons button:hover {
+  background-color: lightgrey;
+  color: black;
+   box-shadow: 0 22px 26px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .nav-buttons button {
+        transition-duration: .5s;
   margin: 1rem;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
 }
+
+.nav-buttons button:active {
+  transform: translateY(15px);
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.2s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.2s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.app {
+  display: flex;
+}
+
+#home-screen {
+    background-image: url("./assets/background.jpg");
+    background-size: 90rem;
+    position: relative;
+}
+
+#slideset2 {
+  height: 49rem; 
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  }
+
+#slideset2 > * {position: absolute; top: 100%; left: 0;
+  animation: 12s autoplay2 infinite ease-in-out}
+
+  @keyframes autoplay2 {
+  0% {top: 100%}
+  4% {top: 0%}
+  33.33% {top: 0%}
+  37.33% {top: -100%}
+  100% {top: -100%}
+}
+
+#slideset2 > *:nth-child(1) {animation-delay: 0s}
+#slideset2 > *:nth-child(2) {animation-delay: 4s}
+#slideset2 > *:nth-child(3) {animation-delay: 8s}
+
+.formal {
+  height: 40rem;
+  width: 20rem;
+}
+.nike {
+  height: 35rem;
+  width: 35rem;
+}
+
 </style>
