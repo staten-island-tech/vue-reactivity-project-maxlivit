@@ -102,21 +102,22 @@
          </div>
 
       </div> 
-      <div v-if="home > 0" id="home-screen">
+          </div>
+      <div v-if="home > 0" class="home-screen">
        <h1 v-if="home > 0" class="welcome">Shop Your Style!</h1>
        <!-- <img :src="image"> -->
       <div id=slideset2 v-if="home > 0">
   <div>
-    <h1>This is slide 1</h1>
+    <!-- <h1>This is slide 1</h1> -->
     <p>Slide 1<img src="./assets/formalfit.png" class="formal"></p>
   </div>
   <div>
-    <h1>This is the second slide</h1>
+    <!-- <h1>This is the second slide</h1> -->
     <p>Second slide<img src="./assets/nikefit.png" class="nike"></p>
   </div>
   <div>
-    <h1>This is slide number 3</h1>
-    <p>Slide number 3</p>
+    <!-- <h1>This is slide number 3</h1> -->
+    <p>Slide number 3 <img src="./assets/chillfit.png"></p>
   </div>
 </div>
  <div class="cart">
@@ -181,7 +182,6 @@
       <button @click="removeFromCart">Remove From Cart</button>
      </div>
      </section>
-    </div>
     </div>
 </template>
 
@@ -372,6 +372,7 @@
         removeFromCart () {
           this.cart -=1
         }
+
       },
   }
 
@@ -516,20 +517,24 @@
 
 .app {
   display: flex;
+  width: 100%;
+  height: 100%;
 }
 
-#home-screen {
+.home-screen {
+    width: 94rem;
     background-image: url("./assets/background.jpg");
     background-size: 90rem;
-    position: relative;
+    text-align: center;
+    display: block;
+    text-align: center;
 }
 
 #slideset2 {
   height: 49rem; 
   position: relative;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
+
   }
 
 #slideset2 > * {position: absolute; top: 100%; left: 0;
