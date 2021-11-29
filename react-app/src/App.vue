@@ -130,8 +130,8 @@
         <div class="show-hats" v-for="hat in hats" :key="hat" >
      <h1>{{hat.name}}</h1>
      <img :src="hat.url" class="hat-img">
-     <button @click="addToCart">Add to Cart</button>
-     <button @click="removeFromCart">Remove From Cart</button>
+     <button @click="addToCart" class="cart-button">Add to Cart</button>
+     <button @click="removeFromCart" class="cart-button">Remove From Cart</button>
      </div>
         </section> 
    <section class='shirt-section' v-if="showShirts"> 
@@ -560,5 +560,20 @@
   height: 35rem;
   width: 35rem;
 }
+.hat-section {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.show-hats {
+  width: 30%;
+  background-color: lightgrey;
+  border-radius: 2rem;
+  margin: 0 auto;
+}
 
+.cart-button {
+  margin: 1rem;
+  padding: 0 auto;
+}
 </style>
