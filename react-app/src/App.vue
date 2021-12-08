@@ -106,7 +106,7 @@
       <div v-if="home > 0" class="home-screen">
        <h1 v-if="home > 0" class="welcome">Shop Your Style!</h1>
        <!-- <img :src="image"> -->
-      <div id=slideset2 v-if="home > 0">
+      <div class=slideset2 v-if="home > 0">
   <div>
     <!-- <h1>This is slide 1</h1> -->
     <p>Slide 1<img src="./assets/formalfit.png" class="formal"></p>
@@ -522,22 +522,21 @@
 }
 
 .home-screen {
-    width: 94rem;
+    width: 118rem;
     background-image: url("./assets/background.jpg");
-    background-size: 90rem;
+    background-size: 118rem;
     text-align: center;
     display: block;
     text-align: center;
 }
 
-#slideset2 {
+.slideset2 {
   height: 49rem; 
   position: relative;
   overflow: hidden;
-
   }
 
-#slideset2 > * {position: absolute; top: 100%; left: 0;
+.slideset2 > * {position: absolute; top: 100%; left: 0;
   animation: 12s autoplay2 infinite ease-in-out}
 
   @keyframes autoplay2 {
@@ -548,9 +547,13 @@
   100% {top: -100%}
 }
 
-#slideset2 > *:nth-child(1) {animation-delay: 0s}
-#slideset2 > *:nth-child(2) {animation-delay: 4s}
-#slideset2 > *:nth-child(3) {animation-delay: 8s}
+.slideset2 > *:nth-child(1) {
+  animation-delay: 0s;
+  right: -10rem;
+  top: 0rem;
+}
+.slideset2 > *:nth-child(2) {animation-delay: 4s}
+.slideset2 > *:nth-child(3) {animation-delay: 8s}
 
 .formal {
   height: 40rem;
